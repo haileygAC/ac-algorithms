@@ -1,30 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="algorithms/Decision-tree-graphic/decision-tree.js" defer></script>
-    <script src="https://kit.fontawesome.com/91c10cd589.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="mainBox">
-        <form action="submit-form">
-            <h3>Whats the weather like? <i class="fa-solid fa-temperature-half"></i> </h3>
-            <div>
-                <select class="weather-type">
-                    <option value="select">Select</option>
-                 
-                    <option value="Sunny">Sunny</option>
-                    <option value="Cloudy">Cloudy</option>
-                    <option value="Rainy">Rainy</option>
-                  </select>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="algorithms/Decision-tree-graphic/decision-tree.js" defer></script>
+        <script src="https://kit.fontawesome.com/91c10cd589.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="algorithms/Decision-tree-graphic/tree.css">
+    </head>
+
+    <body>
+
+       
 
 
+        <div class="main-box">
+            <h3 class="title">Decision-Tree</h3>
 
+            <!-- moving background -->
+            <div class="moving-background">
+
+                <button class="reset"><i class="fa-solid fa-rotate-left repeat"></i></button>
+
+                <div class="form-box">
+
+                    <!-- bus or walking eval -->
+                    <form action="submit-form" class="form">
+
+                        <!-- initial weather icon -->
+                        <i class="fa-solid fa-cloud-moon icon weather-icon"></i>
+
+                        <!-- presenting question -->
+                        <div class="question">
+                            <h3 class>What's the weather like today?</h3>
+                        </div>
+                        <!-- evaluation section -->
+                        <div class="bus-walk-eval">
+
+                            <!-- bus icon -->
+                            <i class="fa-solid fa-bus-simple bus icon"></i>
+                            <i class="fa-solid fa-grip-lines-vertical divider"></i>
+
+                            <!-- eval options displayed in a dropdown -->
+                            <select class="dropdown-list">
+                                <option disabled selected value>Select</option>
+                                <option value="sunny">Sunny</option>
+                                <option value="cloudy">Cloudy</option>
+                                <option value="rainy">Rainy</option>
+                            </select>
+
+                            <!-- walking icon -->
+                            <i class="fa-solid fa-grip-lines-vertical divider"></i>
+                            <i class="fa-solid fa-shoe-prints fa-rotate-270 walk icon"></i>
+                        </div>
+
+                    </form>
+
+                </div>
+                <!-- <i class="fa-solid fa-grip-lines-vertical rotate"></i> -->
 
             </div>
-        </form>
-    </div>
-</body>
+
+        </div>
+    </body>
+
 </html>
