@@ -19,12 +19,30 @@ Steps:
 6. After iterating through the entire array, if no duplicates are found, return false.
  */
 
-function hasDuplicates(arr) {
-   
-}
-
-// Example usage
 const numbers1 = [1, 2, 3, 4, 5, 6];
 const numbers2 = [1, 2, 3, 4, 2, 6];
+
+function hasDuplicates(arr) {
+
+  //declaring a variable with the new Set() function (makes a new array with the values of the original array)
+  // Set is a data structure that allows stored unique values meaning there can't be more than one of each value
+
+  let newArr = new Set();
+
+//using a for loop to check the each value in the array 
+for (let currentValue of arr) {
+
+  //if the newArr already holds that current value, it returns true for having a duplicate
+  if (newArr.has(currentValue)) {
+    return true; 
+  } else {
+    newArr.add(currentValue);
+  }
+}
+
+//returns false meaning no duplicate was found
+return false; 
+}
+
 console.log(hasDuplicates(numbers1)); // Output: false
 console.log(hasDuplicates(numbers2)); // Output: true
