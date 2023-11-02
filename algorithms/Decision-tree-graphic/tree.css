@@ -52,8 +52,8 @@ body {
     border-radius: 25px;
     background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
     background-size: cover;
-    -webkit-animation: slidein 80s;
-    animation: slidein 80s;
+    -webkit-animation: slidein 70s;
+    animation: slidein 70s;
 
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
@@ -68,14 +68,14 @@ body {
 }
 
 .title {
+    position: absolute;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     font-size: 1.5rem;
-    margin: 5px;
+    margin-top: 5px;
+    padding-left: 15px;
     color: rgba(48, 48, 48, 0.735);
-    border-bottom: 3px solid black;
-    width: 300px;
-    text-align: center;
+    text-align: left;
 }
 
 /* animated background */
@@ -88,16 +88,17 @@ body {
 
 .moving-background:hover .icon {
     text-shadow: 0 0 2px rgb(255, 255, 255);
-    color: rgba(174, 174, 174, 0.822);
-}
-
-.moving-background:hover .reset {
-
-    color: rgb(75, 75, 75);
-    opacity: .6;
+    color: rgba(211, 211, 211, 0.822);
+    transition: ease-in-out 1s;
 }
 
 
+
+.weather-icon {
+    position: absolute;
+    margin-bottom: 180px;
+   
+}
 
 .form-box {
     display: flex;
@@ -115,28 +116,37 @@ body {
 }
 
 
-.question h3 {
+.question {
     text-align: left;
     color: rgba(0, 0, 0, 0.689);
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     font-size: 1.5rem;
-    line-height: 45px;
-    margin: 0;
-    text-shadow: 0 0 2px whitesmoke;
+    margin-top: 50px;
+    text-shadow: 0 0 2px rgb(253, 253, 253);
     width: 300px;
     /* border: 2px solid blue; */
 }
 
-.busText,
+.busText {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 65px;
+    margin-top: 0;
+    text-shadow: 0 0 5px whitesmoke;
+}
 .walkText {
     display: flex;
     height: 100%;
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding-left: 15px;
-    text-shadow: 0 0 10px whitesmoke;
+    margin-left: 75px;
+    margin-top: 0;
+    text-shadow: 0 0 5px whitesmoke;
 }
 
 .bus-icon,
@@ -195,22 +205,29 @@ select {
 
 .reset {
     border-radius: 25px;
-    background-color: rgba(245, 245, 245, 0.226);
-    color: rgba(174, 174, 174, 0.822);
-
+    background-color: transparent;
+    color: rgba(40, 40, 40, 0.822);
+    position: absolute;
     text-align: center;
     outline: none;
-    height: 30px;
+    border: none;
+    height: 25px;
     margin-left: 5px;
-    margin-top: 5px;
-    opacity: 0;
+    margin-top: 35px;
+    opacity: 0.5;
 }
 
-.reset:hover .repeat,
+.reset:hover,
 .repeat:hover {
     cursor: pointer;
-    color: rgb(4, 4, 4);
+    color: rgb(69, 69, 69);
     opacity: 1;
+    background-color: transparent;
+
+}
+
+.reset:hover {
+    outline: 1px solid rgb(35, 35, 35);
 }
 
 .hidden {
@@ -241,6 +258,7 @@ select {
         cursor: pointer;
         color: rgb(4, 4, 4);
         opacity: 1;
+       
     }
 
     .icon {
