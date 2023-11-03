@@ -9,27 +9,29 @@ dropdownList.addEventListener("change", function() {
   response = dropdownList.value;
 
   if (response === "sunny") {
-    sunnySelected();
+    sunnyResponse();
   }
   timeResponse()
+
+  if (response === "cloudy") {
+    cloudyResponse();
+  }
+  hungryResponse()
+
+  if (response === "rainy") {
+    rainyResponse()
+  }
 });
 
 
-  // if 'sunny' is selected =>
-  //icons change =>
-  //question changes =>
-  //select options change =>
-  // time function is called next
-
-function sunnySelected() {
+function sunnyResponse() {
 
   //change weather icon to match sunny
-
   weatherIcon = document.querySelector(".weather-icon");
   weatherIcon.classList.add("fa-sun");
+  weatherIcon.classList.add("sun-icon");
 
   //alter css for the question element and replace question text
-  question.style.lineHeight = "30px";
   question.innerHTML =
     "How long would it take you to walk to your destination?";
 
@@ -42,6 +44,7 @@ function sunnySelected() {
   select.value = "select";
   select.disabled = true;
   select.selected = true;
+
 
   let over30 = document.createElement("option");
   over30.text = "more than 30 minutes";
@@ -59,8 +62,11 @@ function sunnySelected() {
 
 
 function timeResponse() {
+
 //declare argument value
   response = dropdownList.value;
+
+  //set condition for bus vs walk result function to be ran
   if (response === "more than 30 minutes") {
     finalResult();
     busResult()
@@ -69,6 +75,94 @@ function timeResponse() {
     finalResult();
     walkResult();
   } else {}
+}
+
+
+function cloudyResponse() {
+
+  //change weather icon to match sunny
+
+  weatherIcon = document.querySelector(".weather-icon");
+  weatherIcon.classList.add("fa-cloud");
+  weatherIcon.classList.add("cloud-icon");
+
+  //alter css for the question element and replace question text
+  question.innerHTML =
+    "Are you hungry?";
+
+  //remove old select options
+  dropdownList.innerHTML = "";
+
+  //add new select options and append them to the form element
+  let select = document.createElement("option");
+  select.text = "select";
+  select.value = "select";
+  select.disabled = true;
+  select.selected = true;
+
+
+  let yes = document.createElement("option");
+  yes.text = "yes";
+  yes.value = "yes";
+
+  let no = document.createElement("option");
+  no.text = "no";
+  no.value = "no";
+
+  dropdownList.appendChild(select);
+  dropdownList.appendChild(yes);
+  dropdownList.appendChild(no);
+}
+
+
+
+function hungryResponse() {
+
+//declare argument value
+  response = dropdownList.value;
+
+  //set condition for bus vs walk result function to be ran
+  if (response === "yes") {
+    finalResult();
+    busResult()
+  }
+  else if (response === "no") {
+    finalResult();
+    walkResult();
+  } else {}
+}
+
+function rainyResponse() {
+
+  finalResult()
+  //create a new div 
+  let bus = document.createElement("div")
+
+  //assign it a class so it will have css formatting applied
+  bus.classList.add('question')
+
+  //create new h3 element
+  let busText = document.createElement("h3")
+
+  //declare variables value
+  busText.innerHTML = `Take the bus!<br><i class="fa-solid fa-bus rain"></i><i class="fa-solid fa-cloud-showers-heavy rain-icon"></i><i class="fa-solid fa-umbrella rain"></i> `;
+
+  //add class name
+  busText.classList.add('busText')
+
+  //append to created div
+  bus.append(busText)
+
+  //call a form.box element
+  formBox = document.querySelector(".form-box")
+
+  //append new div to formBox
+  formBox.append(bus)
+
+  //remove title content
+  let title = document.querySelector(".title")
+  title.textContent = '';
+
 }
 
 
@@ -92,7 +186,7 @@ function busResult() {
   let busText = document.createElement("h3")
 
   //declare variables value
-  busText.innerHTML = `Safest bet...take the bus! <i class="fa-solid fa-bus bus-icon"></i> `;
+  busText.innerHTML = `Safest bet...<br>take the bus!<br><i class="fa-solid fa-bus bus-icon"></i> `;
 
   //add class name
   busText.classList.add('busText')
@@ -121,7 +215,7 @@ function walkResult() {
  
     //create new h3 element
   let walkText = document.createElement("h3")
-  walkText.innerHTML = `Feel the sun. Take deep breaths. Go for a walk! <i class="fa-solid fa-shoe-prints fa-rotate-270 walk-icon"></i>`;
+  walkText.innerHTML = `Get some fresh air & go for a walk!<br><i class="fa-solid fa-shoe-prints fa-rotate-270 walk-icon"></i> `;
 
    //add class name
   walkText.classList.add('walkText')
@@ -138,12 +232,7 @@ function walkResult() {
   title.textContent = '';
 }
 
-
-function transportationOptions() {
-  // Write code here to make the decision tree into an algorithm!
-}
-
-
+//resets the page when the button is clicked 
 reset.addEventListener("click", function () {
   window.location.reload();
 })
