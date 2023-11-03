@@ -145,7 +145,7 @@ function rainyResponse() {
   let busText = document.createElement("h3")
 
   //declare variables value
-  busText.innerHTML = `Take the bus!<br><i class="fa-solid fa-bus rain"></i><i class="fa-solid fa-cloud-showers-heavy rain-icon"></i><i class="fa-solid fa-umbrella rain"></i> `;
+  busText.innerHTML = `Take the bus!<br><span class="icon-column"><i class="fa-solid fa-bus rain"></i><i class="fa-solid fa-cloud-showers-heavy rain-icon"></i><i class="fa-solid fa-umbrella rain"></i></span> `;
 
   //add class name
   busText.classList.add('busText')
